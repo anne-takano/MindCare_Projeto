@@ -1,0 +1,17 @@
+.campo-entrada-form {
+  border: 1px solid #c1c1c1;
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 12px 19px;
+  width: 350px;
+  height: 46px;
+
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #4a4949;
+}
+
+.campo-entrada-form::placeholder {
+  color: #c1c1c1;
+}
