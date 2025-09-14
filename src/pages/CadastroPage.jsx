@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./cadastro-page.estilos.css";
-import Logotipo from "../components/Logotipo";
+import BannerCadastro from "../components/BannerCadastro";
 
 export default function CadastroPage({ actionNavigate }) {
   const [inputUsername, setInputUsername] = useState("");
@@ -27,9 +27,7 @@ export default function CadastroPage({ actionNavigate }) {
   return (
     <>
       <div className="cadastro-container">
-        <Logotipo />
-        <h2>Seja bem vindo(a)!</h2>
-        <p>Insira seus dados para realizar o cadastro:</p>
+        <BannerCadastro />
         <div className="cadastro-form-container">
           <input
             type="text"
