@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 25px;
   height: 100dvh;
 }
 .cadastro-form-container {
@@ -10,4 +11,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 12px;
 }
