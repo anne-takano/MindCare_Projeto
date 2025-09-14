@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function LoginPage({ actionNavigate }) {
+export default function LoginPage({ goToPage }) {
   const [inputUsername, setInputUsername] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -17,7 +17,7 @@ export default function LoginPage({ actionNavigate }) {
       .then((response) => response.json())
       .then((user) => {
         if (user.senha === inputPassword) {
-          actionNavigate(2);
+          goToPage("DashboardPage");
         } else {
           setMessage("Usuário e senha não confere.");
         }
@@ -54,7 +54,7 @@ export default function LoginPage({ actionNavigate }) {
         {message && <p>{message}</p>}
         <p>
           Ainda não tem cadastro?{" "}
-          <a onClick={() => actionNavigate(1)}>Cadastre-se</a>
+          <a onClick={() => goToPage("CadastroPage")}>Cadastre-se</a>
         </p>
       </section>
     </>

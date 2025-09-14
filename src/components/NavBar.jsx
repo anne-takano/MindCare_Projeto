@@ -1,9 +1,9 @@
-export default function NavBar({ actionNavigate }) {
+export default function NavBar({ goToPage }) {
   return (
     <>
       <nav>
-        <a onClick={() => actionNavigate(2)}>Dashboard</a>
-        <a onClick={() => actionNavigate(3)}>Perfil</a>
+        <a onClick={() => goToPage("DashboardPage")}>Dashboard</a>
+        <a onClick={() => goToPage("PerfilPage")}>Perfil</a>
       </nav>
     </>
   );
