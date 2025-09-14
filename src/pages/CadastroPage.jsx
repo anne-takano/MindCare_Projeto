@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./cadastro-page.estilos.css";
-import BannerCadastro from "../components/BannerCadastro";
+import Logotipo from "../components/Logotipo/Logotipo";
+import BannerCadastro from "../components/BannerCadastro/BannerCadastro";
+import CampoInput from "../components/CampoInput/CampoInput";
+import Botao from "../components/Botao/Botao";
 
 export default function CadastroPage({ actionNavigate }) {
   const [inputUsername, setInputUsername] = useState("");
@@ -27,9 +30,10 @@ export default function CadastroPage({ actionNavigate }) {
   return (
     <>
       <div className="cadastro-container">
+        <Logotipo />
         <BannerCadastro />
         <div className="cadastro-form-container">
-          <input
+          <CampoInput
             type="text"
             placeholder="username"
             name="username"
@@ -38,7 +42,7 @@ export default function CadastroPage({ actionNavigate }) {
             value={inputUsername}
             onChange={onChangeUsername}
           />
-          <input
+          <CampoInput
             type="text"
             placeholder="e-mail"
             name="email"
@@ -48,7 +52,7 @@ export default function CadastroPage({ actionNavigate }) {
             onChange={onChangeEmail}
           />
 
-          <input
+          <CampoInput
             type="password"
             placeholder="senha"
             name="senha"
@@ -56,7 +60,7 @@ export default function CadastroPage({ actionNavigate }) {
             value={inputPassword}
             onChange={onChangePassword}
           />
-          <input
+          <CampoInput
             type="password"
             placeholder="confirmar senha"
             name="senha"
@@ -65,11 +69,11 @@ export default function CadastroPage({ actionNavigate }) {
             onChange={onChangeRePassword}
           />
 
-          <button onClick={onClickCadastrar} disabled={isLoading}>
-            Cadastrar
-          </button>
           {message && <p>{message}</p>}
         </div>
+        <Botao onClick={onClickCadastrar} disabled={isLoading}>
+          Cadastrar
+        </Botao>
       </div>
     </>
   );
