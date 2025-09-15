@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "./styles.css";
+import "./variables.css";
 import LoginPage from "./pages/LoginPage";
 import CadastroPage from "./pages/CadastroPage";
 import DashboardPage from "./pages/DashboardPage";
 import PerfilPage from "./pages/PerfilPage";
 
 export default function App() {
-  const [page, setPage] = useState("LoginPage");
+  const [page, setPage] = useState("DashboardPage");
 
   function goToPage(page) {
     setPage(page);

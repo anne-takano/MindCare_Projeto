@@ -6,4 +6,8 @@
 .App {
   font-family: sans-serif;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  width: 100vw;
 }
