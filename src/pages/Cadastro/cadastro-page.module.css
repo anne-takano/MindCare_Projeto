@@ -1,15 +1,19 @@
-.cadastro-container {
+.cadastroContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 25px;
-  height: 100dvh;
+  margin: 80px 0;
 }
-.cadastro-form-container {
+.cadastroFormContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 12px;
+}
+.mensagemErro {
+  color: red;
+  font-size: 12px;
 }

@@ -10,4 +10,9 @@
 
   width: 350px;
   height: 46px;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background-color: #7b54d9;
 }

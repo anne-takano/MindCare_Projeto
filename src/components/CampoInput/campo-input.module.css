@@ -1,4 +1,4 @@
-.campo-entrada-form {
+.campoEntradaForm {
   border: 1px solid #c1c1c1;
   border-radius: 10px;
   background-color: transparent;
@@ -12,6 +12,11 @@
   color: #4a4949;
 }
 
-.campo-entrada-form::placeholder {
+.campoEntradaForm::placeholder {
   color: #c1c1c1;
+}
+
+.campoEntradaForm:focus {
+  border: 2px solid #926cfa;
+  outline: none;
 }

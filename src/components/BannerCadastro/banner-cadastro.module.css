@@ -1,4 +1,4 @@
-.banner-container {
+.bannerContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,20 +6,20 @@
   gap: 12px;
 }
 
-.banner-titulo,
-.banner-subtitulo {
+.bannerTitulo,
+.bannerSubtitulo {
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
   line-height: 140%;
 }
 
-.banner-titulo {
+.bannerTitulo {
   font-size: 32px;
   color: #4a4949;
   text-align: center;
 }
 
-.banner-subtitulo {
+.bannerSubtitulo {
   font-size: 14px;
   color: #6c7278;
   letter-spacing: -0.01em;
