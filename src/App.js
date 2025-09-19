@@ -3,17 +3,23 @@ import "./styles.css";
 import "./variables.css";
 import LoginPage from "./pages/LoginPage";
 import CadastroPage from "./pages/Cadastro/CadastroPage";
-import DashboardPage from "./pages/DashboardPage";
+import DashboardPage from "./pages/Dashboard/DashboardPage";
 import PerfilPage from "./pages/PerfilPage";
 import NavBar from "./components/NavBar/NavBar";
 
 export default function App() {
   //a página começa sempre no Login. (IMPORTANTE!)
   const [page, setPage] = useState("LoginPage");
+  const [user, setUser] = useState("");
 
   //função para trocar de página
   function goToPage(page) {
     setPage(page);
+  }
+
+  //função para setar o usuário após validação do login
+  function updateUser(user) {
+    setUser(user);
   }
 
   //função que decide qual página mostrar
@@ -21,7 +27,7 @@ export default function App() {
     switch (page) {
       case "LoginPage":
         //Página Login pode ir pro Cadastro ou Dashboard
-        return <LoginPage goToPage={goToPage} />;
+        return <LoginPage goToPage={goToPage} updateUser={updateUser} />;
 
       case "CadastroPage":
         //Página Cadastro, ao final, volta pro login
@@ -32,7 +38,7 @@ export default function App() {
         return (
           <>
             <NavBar goToPage={goToPage} />
-            <DashboardPage goToPage={goToPage} />
+            <DashboardPage goToPage={goToPage} user={user} />
           </>
         );
 

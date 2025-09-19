@@ -1,0 +1,20 @@
+{
+    "quantSessoes": 3,
+    "sessoes": [
+        {"ID": 10924190241902,
+        "terapeuta": "Ana Barbosa",
+        "data": "20/09/2025", 
+        "horario": "09:00",
+        "status": "Confirmada"},
+        {"ID": 10912344122123, 
+        "terapeuta": "José Silva", 
+        "data": "02/10/2025", 
+        "horario": "10:00",
+        "status": "Confirmada"},
+        {"ID": 10941231457453, 
+        "terapeuta": "Ana Barbosa", 
+        "data": "15/10/2025", 
+        "horario": "10:30",
+        "status":"Aguardando confirmação"}
+    ]
+}
