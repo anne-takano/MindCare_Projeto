@@ -5,7 +5,7 @@ import BannerCadastro from "../components/BannerCadastro/BannerCadastro";
 import CampoInput from "../components/CampoInput/CampoInput";
 import Botao from "../components/Botao/Botao";
 
-export default function CadastroPage({ actionNavigate }) {
+export default function CadastroPage({ goToPage }) {
   const [inputUsername, setInputUsername] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
@@ -21,7 +21,7 @@ export default function CadastroPage({ actionNavigate }) {
   const onClickCadastrar = () => {
     setMessage("");
     if (inputPassword == inputRePassword) {
-      actionNavigate(0);
+      goToPage("LoginPage");
     } else {
       setMessage("As senhas não conferem.");
     }

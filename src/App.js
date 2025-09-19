@@ -1,29 +1,57 @@
 import { useState } from "react";
 import "./styles.css";
+import "./variables.css";
 import LoginPage from "./pages/LoginPage";
 import CadastroPage from "./pages/CadastroPage";
 import DashboardPage from "./pages/DashboardPage";
 import PerfilPage from "./pages/PerfilPage";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 
 export default function App() {
-  const [page, setPage] = useState(0);
+  //a página começa sempre no Login. (IMPORTANTE!)
+  const [page, setPage] = useState("LoginPage");
 
-  function alterPage(page) {
+  //função para trocar de página
+  function goToPage(page) {
     setPage(page);
   }
 
-  const pages = [
-    <LoginPage actionNavigate={alterPage} />,
-    <CadastroPage actionNavigate={alterPage} />,
-    <DashboardPage />,
-    <PerfilPage />,
-  ];
+  //função que decide qual página mostrar
+  function renderPage() {
+    switch (page) {
+      case "LoginPage":
+        //Página Login pode ir pro Cadastro ou Dashboard
+        return <LoginPage goToPage={goToPage} />;
+
+      case "CadastroPage":
+        //Página Cadastro, ao final, volta pro login
+        return <CadastroPage goToPage={goToPage} />;
+
+      case "DashboardPage":
+        //Página Dashboard aparece com o componente NavBar
+        return (
+          <>
+            <NavBar goToPage={goToPage} />
+            <DashboardPage goToPage={goToPage} />
+          </>
+        );
+
+      case "PerfilPage":
+        //Página Perfil aparece com o componente NavBar
+        return (
+          <>
+            <NavBar goToPage={goToPage} />
+            <PerfilPage goToPage={goToPage} />
+          </>
+        );
+      default:
+        return <LoginPage goToPage={goToPage} />;
+    }
+  }
 
   return (
     <div className="App">
-      {page > 1 && <NavBar actionNavigate={alterPage} />}
-      {pages[page]}
+      {renderPage()}
       <footer>Mindcare 2025</footer>
     </div>
   );
