@@ -5,24 +5,45 @@ import LoginPage from "./pages/LoginPage";
 import CadastroPage from "./pages/CadastroPage";
 import DashboardPage from "./pages/DashboardPage";
 import PerfilPage from "./pages/PerfilPage";
+import NavBar from "./components/NavBar/NavBar";
 
 export default function App() {
-  const [page, setPage] = useState("DashboardPage");
+  //a página começa sempre no Login. (IMPORTANTE!)
+  const [page, setPage] = useState("LoginPage");
 
+  //função para trocar de página
   function goToPage(page) {
     setPage(page);
   }
 
+  //função que decide qual página mostrar
   function renderPage() {
     switch (page) {
       case "LoginPage":
+        //Página Login pode ir pro Cadastro ou Dashboard
         return <LoginPage goToPage={goToPage} />;
+
       case "CadastroPage":
+        //Página Cadastro, ao final, volta pro login
         return <CadastroPage goToPage={goToPage} />;
+
       case "DashboardPage":
-        return <DashboardPage goToPage={goToPage} />;
+        //Página Dashboard aparece com o componente NavBar
+        return (
+          <>
+            <NavBar goToPage={goToPage} />
+            <DashboardPage goToPage={goToPage} />
+          </>
+        );
+
       case "PerfilPage":
-        return <PerfilPage goToPage={goToPage} />;
+        //Página Perfil aparece com o componente NavBar
+        return (
+          <>
+            <NavBar goToPage={goToPage} />
+            <PerfilPage goToPage={goToPage} />
+          </>
+        );
       default:
         return <LoginPage goToPage={goToPage} />;
     }

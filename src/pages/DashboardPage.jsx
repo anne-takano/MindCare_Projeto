@@ -1,9 +1,6 @@
-import NavBar from "../components/NavBar/NavBar";
-
-export default function DashboardPage({ goToPage }) {
+export default function DashboardPage() {
   return (
     <>
-      <NavBar goToPage={goToPage} />
       <h2>Dashboard</h2>
     </>
   );

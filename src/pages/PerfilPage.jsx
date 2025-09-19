@@ -1,9 +1,6 @@
-import NavBar from "../components/NavBar/NavBar";
-
-export default function PerfilPage({ goToPage }) {
+export default function PerfilPage() {
   return (
     <>
-      <NavBar goToPage={goToPage} />
       <h2>Perfil</h2>
     </>
   );
