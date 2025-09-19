@@ -1,5 +1,5 @@
-import "./campo-input.estilos.css";
+import styles from "./campo-input.module.css";
 
 export default function CampoInput(props) {
-  return <input {...props} className="campo-entrada-form" />;
+  return <input {...props} className={styles.campoEntradaForm} required />;
 }

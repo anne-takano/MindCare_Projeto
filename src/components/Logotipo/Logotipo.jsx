@@ -1,6 +1,8 @@
 import logoMindCare from "../../img/logo.png";
-import "./logotipo.estilos.css";
+import styles from "./logotipo.module.css";
 
 export default function Logotipo() {
-  return <img className="logo" src={logoMindCare} alt="Logo da MindCare" />;
+  return (
+    <img className={styles.logo} src={logoMindCare} alt="Logo da MindCare" />
+  );
 }

@@ -1,8 +1,8 @@
-import "./botao.estilos.css";
+import styles from "./botao.module.css";
 
 export default function Botao({ children, ...rest }) {
   return (
-    <button className="botao" {...rest}>
+    <button className={styles.botao} {...rest}>
       {children}
     </button>
   );

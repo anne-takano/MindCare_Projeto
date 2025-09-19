@@ -1,10 +1,10 @@
-import "./banner-cadastro.estilos.css";
+import styles from "./banner-cadastro.module.css";
 
 export default function BannerCadastro() {
   return (
-    <div className="banner-container">
-      <h2 className="banner-titulo">Seja bem vindo(a)!</h2>
-      <p className="banner-subtitulo">
+    <div className={styles.bannerContainer}>
+      <h2 className={styles.bannerTitulo}>Seja bem vindo(a)!</h2>
+      <p className={styles.bannerSubtitulo}>
         Insira seus dados para realizar o cadastro:
       </p>
     </div>
