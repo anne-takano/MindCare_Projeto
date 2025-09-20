@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function LoginPage({ goToPage }) {
+export default function LoginPage({ goToPage, updateUser }) {
   const [inputUsername, setInputUsername] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -17,6 +17,8 @@ export default function LoginPage({ goToPage }) {
       .then((response) => response.json())
       .then((user) => {
         if (user.senha === inputPassword) {
+          //Atualiza o user, o qual sera passado para o dashboard page
+          updateUser(inputUsername);
           goToPage("DashboardPage");
         } else {
           setMessage("Usuário e senha não confere.");
