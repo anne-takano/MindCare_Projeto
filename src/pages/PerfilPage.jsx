@@ -1,53 +1,47 @@
 import { useState, useEffect } from "react";
-import "./perfil-page.estilos.css";
+import styles from "./perfil-page.estilos.module.css";
 import "../styles.css";
 
-// Para simular a imagem do usu·rio
+// Para simular a imagem do usu√°rio
 const defaultUserImage = "https://i.pravatar.cc/300";
 
 export default function PerfilPage() {
-    // `null` no inÌcio para indicar que os dados ainda n„o foram carregados.
+    // Armazena os dados do perfil do usu√°rio.
     const [userData, setUserData] = useState(null);
-    // Isso permite que o usu·rio edite os dados
-    // sem alterar o estado original `userData` atÈ que o bot„o "Salvar" seja clicado.
+    // Armazena os dados do formul√°rio durante a edi√ß√£o.
     const [formData, setFormData] = useState({});
-    // `editMode` controla a visualizaÁ„o da p·gina. Se for `false`,
-    // o usu·rio vÍ os dados do perfil; se for `true`, o formul·rio de ediÁ„o aparece.
+    // Controla a exibi√ß√£o entre o modo de visualiza√ß√£o e edi√ß√£o.
     const [editMode, setEditMode] = useState(false);
-    // `message` È usado para exibir feedback ao usu·rio, como "Perfil atualizado!"
-    // ou "EdiÁ„o cancelada.".
+    // Exibe mensagens de feedback para o usu√°rio.
     const [message, setMessage] = useState("");
+
     useEffect(() => {
-        // Esta funÁ„o simula a busca dos dados do usu·rio logado.
-        // em um proximo passo faremos uma chamada a uma API (ex: `fetch('/api/user/profile')`).
+        // Simula a busca de dados do usu√°rio ao carregar o componente.
         const fetchUserData = () => {
-            // Dados din‚micos que viriam de uma fonte externa como json ou BD.
+            // TODO: Substituir por uma chamada de API real.
             const user = {
                 nome: "Caio",
                 sobrenome: "Silva",
                 cpf: "123.456.789-00",
                 email: "caio.silva@email.com",
                 username: "caiosilva",
-                genero: "",
-                dataNascimento: "",
-                telefone: "",
-                profissao: "",
-                estadoCivil: "",
+                genero: "Masculino",
+                dataNascimento: "n√£o informado",
+                telefone: "n√£o informado",
+                profissao: "n√£o informado",
+                estadoCivil: "Solteiro",
             };
-            // Atualizamos os estados com os dados carregados.
             setUserData(user);
             setFormData(user);
         };
         fetchUserData();
     }, []);
 
-    // Se `userData` ainda for `null`, mostramos uma mensagem de carregamento.
     if (!userData) {
         return <div>Carregando perfil...</div>;
     }
 
-    // Esta funÁ„o È chamada a cada digitaÁ„o no formul·rio. Ela atualiza
-    // o estado `formData` com o novo valor do campo em que o usu·rio est· digitando.
+    // Atualiza o estado do formul√°rio a cada mudan√ßa nos inputs.
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
@@ -56,51 +50,46 @@ export default function PerfilPage() {
         }));
     };
 
-    // Esta funÁ„o È chamada quando o usu·rio clica em "Salvar".
-    // Nela, a gente simula o envio dos dados para a API e,
-    // se a resposta for de sucesso, atualizamos os dados principais (`userData`).
+    // Salva as altera√ß√µes do perfil.
     const handleSave = () => {
         console.log("Dados a serem salvos:", formData);
-        // SimulaÁ„o de atualizaÁ„o bem-sucedida.
+        // TODO: Enviar dados para a API.
         setUserData(formData);
-        setEditMode(false); // Volta para o modo de visualizaÁ„o.
-        alert("Perfil atualizado com sucesso!"); // Exibe uma mensagem de sucesso.
-        setTimeout(() => setMessage(""), 3000); // Limpa a mensagem apÛs 3 segundos.
-    };
-
-    // Esta funÁ„o È chamada quando o usu·rio clica em "Cancelar".
-    // e sai do modo de ediÁ„o, descartando as alteraÁıes.
-    const handleCancel = () => {
-        setFormData(userData);
         setEditMode(false);
-        alert("EdiÁ„o cancelada.");
+        alert("Perfil atualizado com sucesso!");
         setTimeout(() => setMessage(""), 3000);
     };
 
-    // FunÁ„o fictÌcia para a troca de senha.
+    // Cancela a edi√ß√£o e reverte as altera√ß√µes.
+    const handleCancel = () => {
+        setFormData(userData);
+        setEditMode(false);
+        alert("Edi√ß√£o cancelada.");
+        setTimeout(() => setMessage(""), 3000);
+    };
+
+    // A√ß√£o para troca de senha.
     const handleChangePassword = () => {
         alert("Funcionalidade de troca de senha ativada!");
     };
 
     return (
-        <div className="perfil-container">
+        <div className={styles['perfil-container']}>
             {/* O container interno, que funciona como a "caixa" do perfil*/}
-            <div className="perfil-form-container">
+            <div className={styles['perfil-form-container']}>
                 <img
                     src={defaultUserImage}
                     alt="Imagem de Perfil"
-                    className="perfil-img"
+                    className={styles['perfil-img']}
                 />
                 <h2>
                     {userData.nome} {userData.sobrenome}
                 </h2> 
-                {/* Exibe a mensagem de feedback se houver uma. */}
-                {message && <p className="status-message">{message}</p>}
+                {message && <p>{message}</p>}
 
-                {/* RenderizaÁ„o condicional: se `editMode` for `false`,
-            mostra os dados; se for `true`, mostra o formul·rio. */}
+                {/* Alterna entre modo de visualiza√ß√£o e edi√ß√£o */}
                 {!editMode ? (
-                    <div className="perfil-dados">
+                    <div className={styles['perfil-dados']}>
                         <p>
                             <strong>Email:</strong> {userData.email}
                         </p>
@@ -108,35 +97,34 @@ export default function PerfilPage() {
                             <strong>CPF:</strong> {userData.cpf}
                         </p>
                         <p>
-                            <strong>GÍnero:</strong> {userData.genero || "N„o informado"}
+                            <strong>G√™nero:</strong> {userData.genero || "N√£o informado"}
                         </p>
                         <p>
                             <strong>Data de Nascimento:</strong>{" "}
-                            {userData.dataNascimento || "N„o informada"}
+                            {userData.dataNascimento || "N√£o informada"}
                         </p>
                         <p>
-                            <strong>Telefone:</strong> {userData.telefone || "N„o informado"}
+                            <strong>Telefone:</strong> {userData.telefone || "N√£o informado"}
                         </p>
                         <p>
-                            <strong>Profiss„o:</strong> {userData.profissao || "N„o informada"}
+                            <strong>Profiss√£o:</strong> {userData.profissao || "N√£o informada"}
                         </p>
                         <p>
                             <strong>Estado Civil:</strong>{" "}
-                            {userData.estadoCivil || "N„o informado"}
+                            {userData.estadoCivil || "N√£o informado"}
                         </p>
-                        {/* O bot„o para alternar para o modo de ediÁ„o. */}
-                        <button onClick={() => setEditMode(true)}>
+                        <button className={styles.button} onClick={() => setEditMode(true)}>
                             Editar Dados
                         </button>
-                        {/* O bot„o "Trocar Senha"*/}
-                        <button onClick={handleChangePassword}>
+                        <button className={styles.button} onClick={handleChangePassword}>
                             Trocar Senha
                         </button>
                     </div>
                 ) : (
                     <form>
-                        {/* Campos do formul·rio para ediÁ„o*/}
+                        {/* Campos do formul√°rio para edi√ß√£o*/}
                         <input
+                            className={styles.input}
                             type="text"
                             placeholder="Nome"
                             name="nome"
@@ -144,6 +132,7 @@ export default function PerfilPage() {
                             onChange={handleInputChange}
                         />
                         <input
+                            className={styles.input}
                             type="text"
                             placeholder="Sobrenome"
                             name="sobrenome"
@@ -151,6 +140,7 @@ export default function PerfilPage() {
                             onChange={handleInputChange}
                             />
                             <input
+                                className={styles.input}
                                 type="cpf"
                                 placeholder="CPF"
                                 name="cpf"
@@ -158,6 +148,7 @@ export default function PerfilPage() {
                                 onChange={handleInputChange}
                             />
                         <input
+                            className={styles.input}
                             type="email"
                             placeholder="Email"
                             name="email"
@@ -165,16 +156,18 @@ export default function PerfilPage() {
                             onChange={handleInputChange}
                         />
                             <select
+                                className={styles.select}
                                 name="genero"
                                 value={formData.genero}
                                 onChange={handleInputChange}
                             >
-                                <option value="" disabled>Selecione o GÍnero</option>
+                                <option value="" disabled>Selecione o G√™nero</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Feminino">Feminino</option>
                                 <option value="Outros">Outros</option>
                             </select>
                         <input
+                            className={styles.input}
                             type="date"
                             placeholder="Data de Nascimento"
                             name="dataNascimento"
@@ -182,6 +175,7 @@ export default function PerfilPage() {
                             onChange={handleInputChange}
                         />
                         <input
+                            className={styles.input}
                             type="tel"
                             placeholder="Telefone"
                             name="telefone"
@@ -189,13 +183,15 @@ export default function PerfilPage() {
                             onChange={handleInputChange}
                         />
                         <input
+                            className={styles.input}
                             type="text"
-                            placeholder="Profiss„o"
+                            placeholder="Profiss√£o"
                             name="profissao"
                             value={formData.profissao}
                             onChange={handleInputChange}
                         />
                             <select
+                                className={styles.select}
                                 name="estadoCivil"
                                 value={formData.estadoCivil}
                                 onChange={handleInputChange}
@@ -204,14 +200,14 @@ export default function PerfilPage() {
                                 <option value="Solteiro">Solteiro(a)</option>
                                 <option value="Casado">Casado(a)</option>
                                 <option value="Divorciado">Divorciado(a)</option>
-                                <option value="Vi˙vo">Vi˙vo(a)</option>
+                                <option value="Vi√∫vo">Vi√∫vo(a)</option>
                             </select>
-                        {/* Botıes de aÁ„o do formul·rio. */}
-                        <div className="form-actions">
-                            <button type="button" onClick={handleSave}>
+                        {/* Bot√µes de a√ß√£o do formul√°rio. */}
+                        <div className={styles['form-actions']}>
+                            <button type="button" className={`${styles.button} ${styles.actionButton}`} onClick={handleSave}>
                                 Salvar
                             </button>
-                            <button type="button" onClick={handleCancel} className="cancel">
+                            <button type="button" onClick={handleCancel} className={`${styles.button} ${styles.actionButton} ${styles.cancel}`}>
                                 Cancelar
                             </button>
                         </div>
