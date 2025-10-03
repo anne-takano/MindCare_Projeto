@@ -3,4 +3,7 @@
   --highlight-color: rgb(10, 128, 175);
   --background-color: white;
   --shadow-color: darkgray;
+
+  --primary-font: "Inter", sans-serif;
+  --color-purple: rgba(123, 84, 217, 1);
 }
