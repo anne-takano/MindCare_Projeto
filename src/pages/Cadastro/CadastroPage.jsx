@@ -73,7 +73,10 @@ export default function CadastroPage({ goToPage }) {
     <>
       <div className={styles.cadastroContainer}>
         <Logotipo />
-        <BannerCadastro />
+        <BannerCadastro
+          titulo="Seja bem vindo(a)!"
+          subtitulo="Insira seus dados para realizar o cadastro:"
+        />
         <form
           className={styles.cadastroFormContainer}
           onSubmit={onSubmitCadastrar}

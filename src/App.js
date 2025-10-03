@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./styles.css";
 import "./variables.css";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 import CadastroPage from "./pages/Cadastro/CadastroPage";
 import DashboardPage from "./pages/Dashboard/DashboardPage";
 import PerfilPage from "./pages/PerfilPage";

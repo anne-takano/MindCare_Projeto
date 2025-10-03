@@ -1,11 +1,11 @@
 import styles from "./banner-cadastro.module.css";
 
-export default function BannerCadastro() {
+export default function BannerCadastro({ titulo, subtitulo, onClick, texto }) {
   return (
     <div className={styles.bannerContainer}>
-      <h2 className={styles.bannerTitulo}>Seja bem vindo(a)!</h2>
+      <h2 className={styles.bannerTitulo}>{titulo}</h2>
       <p className={styles.bannerSubtitulo}>
-        Insira seus dados para realizar o cadastro:
+        {subtitulo} <a onClick={onClick}>{texto}</a>
       </p>
     </div>
   );
