@@ -2,222 +2,223 @@ import { useState, useEffect } from "react";
 import "./perfil-page.estilos.css";
 import "../styles.css";
 
-// Para simular a imagem do usu·rio
+// Para simular a imagem do usu√°rio
 const defaultUserImage = "https://i.pravatar.cc/300";
 
 export default function PerfilPage() {
-    // `null` no inÌcio para indicar que os dados ainda n„o foram carregados.
-    const [userData, setUserData] = useState(null);
-    // Isso permite que o usu·rio edite os dados
-    // sem alterar o estado original `userData` atÈ que o bot„o "Salvar" seja clicado.
-    const [formData, setFormData] = useState({});
-    // `editMode` controla a visualizaÁ„o da p·gina. Se for `false`,
-    // o usu·rio vÍ os dados do perfil; se for `true`, o formul·rio de ediÁ„o aparece.
-    const [editMode, setEditMode] = useState(false);
-    // `message` È usado para exibir feedback ao usu·rio, como "Perfil atualizado!"
-    // ou "EdiÁ„o cancelada.".
-    const [message, setMessage] = useState("");
-    useEffect(() => {
-        // Esta funÁ„o simula a busca dos dados do usu·rio logado.
-        // em um proximo passo faremos uma chamada a uma API (ex: `fetch('/api/user/profile')`).
-        const fetchUserData = () => {
-            // Dados din‚micos que viriam de uma fonte externa como json ou BD.
-            const user = {
-                nome: "Caio",
-                sobrenome: "Silva",
-                cpf: "123.456.789-00",
-                email: "caio.silva@email.com",
-                username: "caiosilva",
-                genero: "",
-                dataNascimento: "",
-                telefone: "",
-                profissao: "",
-                estadoCivil: "",
-            };
-            // Atualizamos os estados com os dados carregados.
-            setUserData(user);
-            setFormData(user);
-        };
-        fetchUserData();
-    }, []);
-
-    // Se `userData` ainda for `null`, mostramos uma mensagem de carregamento.
-    if (!userData) {
-        return <div>Carregando perfil...</div>;
-    }
-
-    // Esta funÁ„o È chamada a cada digitaÁ„o no formul·rio. Ela atualiza
-    // o estado `formData` com o novo valor do campo em que o usu·rio est· digitando.
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
+  // `null` no in√≠cio para indicar que os dados ainda n√£o foram carregados.
+  const [userData, setUserData] = useState(null);
+  // Isso permite que o usu√°rio edite os dados
+  // sem alterar o estado original `userData` at√© que o bot√£o "Salvar" seja clicado.
+  const [formData, setFormData] = useState({});
+  // `editMode` controla a visualiza√ß√£o da p√°gina. Se for `false`,
+  // o usu√°rio v√™ os dados do perfil; se for `true`, o formul√°rio de edi√ß√£o aparece.
+  const [editMode, setEditMode] = useState(false);
+  // `message` √© usado para exibir feedback ao usu√°rio, como "Perfil atualizado!"
+  // ou "edi√ß√£o cancelada.".
+  const [message, setMessage] = useState("");
+  useEffect(() => {
+    // Esta fun√ß√£o simula a busca dos dados do usu√°rio logado.
+    // em um proximo passo faremos uma chamada a uma API (ex: `fetch('/api/user/profile')`).
+    const fetchUserData = () => {
+      // Dados din√¢micos que viriam de uma fonte externa como json ou BD.
+      const user = {
+        nome: "Caio",
+        sobrenome: "Silva",
+        cpf: "123.456.789-00",
+        email: "caio.silva@email.com",
+        username: "caiosilva",
+        genero: "",
+        dataNascimento: "",
+        telefone: "",
+        profissao: "",
+        estadoCivil: "",
+      };
+      // Atualizamos os estados com os dados carregados.
+      setUserData(user);
+      setFormData(user);
     };
+    fetchUserData();
+  }, []);
 
-    // Esta funÁ„o È chamada quando o usu·rio clica em "Salvar".
-    // Nela, a gente simula o envio dos dados para a API e,
-    // se a resposta for de sucesso, atualizamos os dados principais (`userData`).
-    const handleSave = () => {
-        console.log("Dados a serem salvos:", formData);
-        // SimulaÁ„o de atualizaÁ„o bem-sucedida.
-        setUserData(formData);
-        setEditMode(false); // Volta para o modo de visualizaÁ„o.
-        alert("Perfil atualizado com sucesso!"); // Exibe uma mensagem de sucesso.
-        setTimeout(() => setMessage(""), 3000); // Limpa a mensagem apÛs 3 segundos.
-    };
+  // Se `userData` ainda for `null`, mostramos uma mensagem de carregamento.
+  if (!userData) {
+    return <div>Carregando perfil...</div>;
+  }
 
-    // Esta funÁ„o È chamada quando o usu·rio clica em "Cancelar".
-    // e sai do modo de ediÁ„o, descartando as alteraÁıes.
-    const handleCancel = () => {
-        setFormData(userData);
-        setEditMode(false);
-        alert("EdiÁ„o cancelada.");
-        setTimeout(() => setMessage(""), 3000);
-    };
+  // Esta fun√ß√£o √© chamada a cada digita√ß√£o no formul√°rio. Ela atualiza
+  // o estado `formData` com o novo valor do campo em que o usu√°rio est√° digitando.
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-    // FunÁ„o fictÌcia para a troca de senha.
-    const handleChangePassword = () => {
-        alert("Funcionalidade de troca de senha ativada!");
-    };
+  // Esta fun√ß√£o √© chamada quando o usu√°rio clica em "Salvar".
+  // Nela, a gente simula o envio dos dados para a API e,
+  // se a resposta for de sucesso, atualizamos os dados principais (`userData`).
+  const handleSave = () => {
+    console.log("Dados a serem salvos:", formData);
+    // Simula√ß√£o de atualiza√ß√£o bem-sucedida.
+    setUserData(formData);
+    setEditMode(false); // Volta para o modo de visualiza√ß√£o.
+    alert("Perfil atualizado com sucesso!"); // Exibe uma mensagem de sucesso.
+    setTimeout(() => setMessage(""), 3000); // Limpa a mensagem ap√≥s 3 segundos.
+  };
 
-    return (
-        <div className="perfil-container">
-            {/* O container interno, que funciona como a "caixa" do perfil*/}
-            <div className="perfil-form-container">
-                <img
-                    src={defaultUserImage}
-                    alt="Imagem de Perfil"
-                    className="perfil-img"
-                />
-                <h2>
-                    {userData.nome} {userData.sobrenome}
-                </h2> 
-                {/* Exibe a mensagem de feedback se houver uma. */}
-                {message && <p className="status-message">{message}</p>}
+  // Esta fun√ß√£o √© chamada quando o usu√°rio clica em "Cancelar".
+  // e sai do modo de edi√ß√£o, descartando as altera√ß√µes.
+  const handleCancel = () => {
+    setFormData(userData);
+    setEditMode(false);
+    alert("edi√ß√£o cancelada.");
+    setTimeout(() => setMessage(""), 3000);
+  };
 
-                {/* RenderizaÁ„o condicional: se `editMode` for `false`,
-            mostra os dados; se for `true`, mostra o formul·rio. */}
-                {!editMode ? (
-                    <div className="perfil-dados">
-                        <p>
-                            <strong>Email:</strong> {userData.email}
-                        </p>
-                        <p>
-                            <strong>CPF:</strong> {userData.cpf}
-                        </p>
-                        <p>
-                            <strong>GÍnero:</strong> {userData.genero || "N„o informado"}
-                        </p>
-                        <p>
-                            <strong>Data de Nascimento:</strong>{" "}
-                            {userData.dataNascimento || "N„o informada"}
-                        </p>
-                        <p>
-                            <strong>Telefone:</strong> {userData.telefone || "N„o informado"}
-                        </p>
-                        <p>
-                            <strong>Profiss„o:</strong> {userData.profissao || "N„o informada"}
-                        </p>
-                        <p>
-                            <strong>Estado Civil:</strong>{" "}
-                            {userData.estadoCivil || "N„o informado"}
-                        </p>
-                        {/* O bot„o para alternar para o modo de ediÁ„o. */}
-                        <button onClick={() => setEditMode(true)}>
-                            Editar Dados
-                        </button>
-                        {/* O bot„o "Trocar Senha"*/}
-                        <button onClick={handleChangePassword}>
-                            Trocar Senha
-                        </button>
-                    </div>
-                ) : (
-                    <form>
-                        {/* Campos do formul·rio para ediÁ„o*/}
-                        <input
-                            type="text"
-                            placeholder="Nome"
-                            name="nome"
-                            value={formData.nome}
-                            onChange={handleInputChange}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Sobrenome"
-                            name="sobrenome"
-                            value={formData.sobrenome}
-                            onChange={handleInputChange}
-                            />
-                            <input
-                                type="cpf"
-                                placeholder="CPF"
-                                name="cpf"
-                                value={formData.cpf}
-                                onChange={handleInputChange}
-                            />
-                        <input
-                            type="email"
-                            placeholder="Email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                        />
-                            <select
-                                name="genero"
-                                value={formData.genero}
-                                onChange={handleInputChange}
-                            >
-                                <option value="" disabled>Selecione o GÍnero</option>
-                                <option value="Masculino">Masculino</option>
-                                <option value="Feminino">Feminino</option>
-                                <option value="Outros">Outros</option>
-                            </select>
-                        <input
-                            type="date"
-                            placeholder="Data de Nascimento"
-                            name="dataNascimento"
-                            value={formData.dataNascimento}
-                            onChange={handleInputChange}
-                        />
-                        <input
-                            type="tel"
-                            placeholder="Telefone"
-                            name="telefone"
-                            value={formData.telefone}
-                            onChange={handleInputChange}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Profiss„o"
-                            name="profissao"
-                            value={formData.profissao}
-                            onChange={handleInputChange}
-                        />
-                            <select
-                                name="estadoCivil"
-                                value={formData.estadoCivil}
-                                onChange={handleInputChange}
-                            >
-                                <option value="" disabled>Selecione o Estado Civil</option>
-                                <option value="Solteiro">Solteiro(a)</option>
-                                <option value="Casado">Casado(a)</option>
-                                <option value="Divorciado">Divorciado(a)</option>
-                                <option value="Vi˙vo">Vi˙vo(a)</option>
-                            </select>
-                        {/* Botıes de aÁ„o do formul·rio. */}
-                        <div className="form-actions">
-                            <button type="button" onClick={handleSave}>
-                                Salvar
-                            </button>
-                            <button type="button" onClick={handleCancel} className="cancel">
-                                Cancelar
-                            </button>
-                        </div>
-                    </form>
-                )}
+  // fun√ß√£o fict√≠cia para a troca de senha.
+  const handleChangePassword = () => {
+    alert("Funcionalidade de troca de senha ativada!");
+  };
+
+  return (
+    <div className="perfil-container">
+      {/* O container interno, que funciona como a "caixa" do perfil*/}
+      <div className="perfil-form-container">
+        <img
+          src={defaultUserImage}
+          alt="Imagem de Perfil"
+          className="perfil-img"
+        />
+        <h2>
+          {userData.nome} {userData.sobrenome}
+        </h2>
+        {/* Exibe a mensagem de feedback se houver uma. */}
+        {message && <p className="status-message">{message}</p>}
+
+        {/* Renderiza√ß√£o condicional: se `editMode` for `false`,
+            mostra os dados; se for `true`, mostra o formul√°rio. */}
+        {!editMode ? (
+          <div className="perfil-dados">
+            <p>
+              <strong>Email:</strong> {userData.email}
+            </p>
+            <p>
+              <strong>CPF:</strong> {userData.cpf}
+            </p>
+            <p>
+              <strong>G√™nero:</strong> {userData.genero || "n√£o informado"}
+            </p>
+            <p>
+              <strong>Data de Nascimento:</strong>{" "}
+              {userData.dataNascimento || "n√£o informada"}
+            </p>
+            <p>
+              <strong>Telefone:</strong> {userData.telefone || "n√£o informado"}
+            </p>
+            <p>
+              <strong>Profiss√£o:</strong>{" "}
+              {userData.profissao || "n√£o informada"}
+            </p>
+            <p>
+              <strong>Estado Civil:</strong>{" "}
+              {userData.estadoCivil || "n√£o informado"}
+            </p>
+            {/* O bot√£o para alternar para o modo de edi√ß√£o. */}
+            <button onClick={() => setEditMode(true)}>Editar Dados</button>
+            {/* O bot√£o "Trocar Senha"*/}
+            <button onClick={handleChangePassword}>Trocar Senha</button>
+          </div>
+        ) : (
+          <form>
+            {/* Campos do formul√°rio para edi√ß√£o*/}
+            <input
+              type="text"
+              placeholder="Nome"
+              name="nome"
+              value={formData.nome}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              placeholder="Sobrenome"
+              name="sobrenome"
+              value={formData.sobrenome}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              placeholder="CPF"
+              name="cpf"
+              value={formData.cpf}
+              onChange={handleInputChange}
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+            />
+            <select
+              name="genero"
+              value={formData.genero}
+              onChange={handleInputChange}
+            >
+              <option value="" disabled>
+                Selecione o G√™nero
+              </option>
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+              <option value="Outros">Outros</option>
+            </select>
+            <input
+              type="date"
+              placeholder="Data de Nascimento"
+              name="dataNascimento"
+              value={formData.dataNascimento}
+              onChange={handleInputChange}
+            />
+            <input
+              type="tel"
+              placeholder="Telefone"
+              name="telefone"
+              value={formData.telefone}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              placeholder="Profiss√£o"
+              name="profissao"
+              value={formData.profissao}
+              onChange={handleInputChange}
+            />
+            <select
+              name="estadoCivil"
+              value={formData.estadoCivil}
+              onChange={handleInputChange}
+            >
+              <option value="" disabled>
+                Selecione o Estado Civil
+              </option>
+              <option value="Solteiro">Solteiro(a)</option>
+              <option value="Casado">Casado(a)</option>
+              <option value="Divorciado">Divorciado(a)</option>
+              <option value="Vi√∫vo">Vi√∫vo(a)</option>
+            </select>
+            {/* Bot√µes de a√ß√£o do formul√°rio. */}
+            <div className="form-actions">
+              <button type="button" onClick={handleSave}>
+                Salvar
+              </button>
+              <button type="button" onClick={handleCancel} className="cancel">
+                Cancelar
+              </button>
             </div>
-        </div>
-    );
+          </form>
+        )}
+      </div>
+    </div>
+  );
 }
