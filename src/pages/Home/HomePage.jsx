@@ -22,34 +22,45 @@ export default function HomePage({ user, goToPage }) {
 
   function renderPage() {
     return (
-      <div className={style.container}>
-        <h2 className={style.titulo}>Olá, {usuario.nome}!</h2>
-        <div className={style.cardInfo}>
-          <FotoDePerfil img={usuario.img} />
-          <div className={style.cardInfoUsuario}>
-            <h3>
-              {usuario.nome} {usuario.sobrenome}
-            </h3>
-            <p>CPF: {usuario.cpf}</p>
-            <p>Data de nascimento: {usuario.dataNascimento}</p>
+      <div className={style.pageContainer}>
+        <div className={style.userSection}>
+          <h2 className={style.welcomeTitle}>Olá, {usuario.nome}!</h2>
+          <div className={style.userCard}>
+            <FotoDePerfil img={usuario.img} />
+            <div className={style.userDetails}>
+              <p>
+                <b>
+                  {usuario.nome} {usuario.sobrenome}
+                </b>
+              </p>
+              <p>
+                <b>CPF:</b> {usuario.cpf}
+              </p>
+              <p>
+                <b>Data de nascimento:</b> {usuario.dataNascimento}
+              </p>
+              <p>
+                <b>Cidade:</b> {usuario.cidade} ({usuario.estado})
+              </p>
+            </div>
           </div>
         </div>
-        <div className={style.cardAcoesWrapper}>
+        <div className={style.actionsSection}>
           <h3>O que você precisa hoje?</h3>
-          <div className={style.cardAcoesOpcoes}>
-            <div className={`${style.cardAcoesOpcao} ${style.terapeutas}`}>
+          <div className={style.actionsGrid}>
+            <div className={`${style.actionCard} ${style.terapeutas}`}>
               <Icon iconName="person_pin_circle" />
               <p>Buscar terapeutas</p>
             </div>
             <div
-              className={`${style.cardAcoesOpcao} ${style.agendamentos}`}
+              className={`${style.actionCard} ${style.agendamentos}`}
               onClick={() => goToPage("DashboardPage")}
               style={{ cursor: "pointer" }}
             >
               <Icon iconName="calendar_month" />
               <p>Consultar agendamentos</p>
             </div>
-            <div className={`${style.cardAcoesOpcao} ${style.reembolso}`}>
+            <div className={`${style.actionCard} ${style.reembolso}`}>
               <Icon iconName="request_quote" />
               <p>Solicitar reembolso</p>
             </div>

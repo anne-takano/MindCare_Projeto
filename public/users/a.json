@@ -6,6 +6,8 @@
   "sobrenome": "Pereira da Silva",
   "cpf": "123.456.789-00",
   "dataNascimento": "01/03/2001",
+  "cidade": "Belo Horizonte",
+  "estado": "MG",
   "genero": "Feminino",
   "img": "/users/img/amanda_silva.png"
 }

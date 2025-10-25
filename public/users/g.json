@@ -1,0 +1,13 @@
+{
+    "username": "g",
+    "email": "g@gmail.com",
+    "senha": "g",
+    "nome": "Gabriel",
+    "sobrenome": "Souza Machado",
+    "cpf": "012.345.678-90",
+    "dataNascimento": "25/06/2005",
+    "cidade": "Vitória",
+    "estado": "ES",
+    "genero": "Masculino",
+    "img": "/users/img/gabriel_machado.png"
+  }

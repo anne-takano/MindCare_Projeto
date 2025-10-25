@@ -65,10 +65,5 @@ export default function App() {
     }
   }
 
-  return (
-    <div className="App">
-      {renderPage()}
-      <footer>Mindcare 2025</footer>
-    </div>
-  );
+  return <div className="App">{renderPage()}</div>;
 }

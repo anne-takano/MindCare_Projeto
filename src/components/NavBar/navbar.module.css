@@ -1,94 +1,98 @@
+/* Navbar container */
 .navbar {
   display: flex;
-  height: 3rem;
-  width: 100vw;
-  background-color: var(--primary-color);
+  align-items: center;
   justify-content: space-between;
-  box-shadow: 0 0 1rem hsl(from var(--shadow-color) h s l / 100%);
+  width: 100dvw;
+  padding: 22px;
+  background-color: var(--purple-color);
+  position: relative;
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
-
-  img {
-    height: 80%;
-    width: auto;
-    margin-right: 1rem;
-  }
+  z-index: 30;
 }
 
-.bar {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  flex-direction: column;
+.logo img {
+  height: auto;
+  width: 80px;
 }
-.btn {
+
+/* Menu button (mobile) */
+.menuBtn {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 0.3rem;
-  right: 0.5rem;
   padding: 0.5rem;
   border: 0;
-  background-color: hsl(from var(--primary-color) h s l / 0%);
-  z-index: 20;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 30;
 }
-.list {
+
+/* Navigation list */
+.navList {
+  display: none;
   list-style-type: none;
-  flex-direction: column;
+  margin: 0;
+  padding: 0;
   position: absolute;
   top: 0;
-  padding-top: 3rem;
   right: 0;
-  min-width: 200px;
   width: 50%;
+  min-width: 200px;
   height: 100dvh;
-  z-index: 10;
+  padding-top: 5rem;
   background-color: var(--background-color);
   box-shadow: 0 0 1rem hsl(from var(--shadow-color) h s l / 50%);
+  z-index: 20;
 }
-.hide {
-  display: none;
+
+.navList.active {
+  display: flex;
+  flex-direction: column;
 }
-.item:hover {
+
+/* Navigation items */
+.navItem {
+  list-style: none;
+}
+
+.navItem:hover {
   background-color: hsl(from var(--highlight-color) h s l / 60%);
 }
-.link {
-  cursor: pointer;
-  text-decoration: none;
+
+/* Navigation links */
+.navLink {
   display: block;
   padding: 1rem 2rem;
   color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
+/* Desktop styles */
 @media screen and (min-width: 768px) {
-  .bar {
-    display: flex;
-    align-items: unset;
-    flex-direction: unset;
-    flex: 1;
-  }
-  .btn {
+  .menuBtn {
     display: none;
   }
-  .list {
+
+  .navList {
     display: flex;
-    flex-direction: unset;
-    justify-content: flex-start;
-    position: unset;
-    height: unset;
-    width: 100%;
-    background-color: var(--primary-color);
-    box-shadow: unset;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    height: auto;
     padding-top: 0;
+    background-color: transparent;
+    box-shadow: none;
   }
-  .hide {
-    display: flex;
-  }
-  .link {
+
+  .navLink {
     color: white;
+    padding: 0.5rem 1rem;
   }
 }

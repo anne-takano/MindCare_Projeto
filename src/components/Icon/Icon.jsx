@@ -1,6 +1,19 @@
 export default function Icon(props) {
+  const variantClass = props.variant
+    ? `material-symbols-${props.variant}`
+    : "material-symbols-outlined";
+
+  const style = {
+    color: props.color,
+    fontSize: props.fontSize,
+  };
+
+  if (props.weight) {
+    style.fontVariationSettings = `'wght' ${props.weight}`;
+  }
+
   return (
-    <span class="material-symbols-outlined" style={{ color: props.color }}>
+    <span className={variantClass} style={style}>
       {props.iconName}
     </span>
   );
