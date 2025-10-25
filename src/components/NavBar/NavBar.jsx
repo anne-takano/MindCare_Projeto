@@ -13,7 +13,7 @@ export default function NavBar({ goToPage }) {
   return (
     <nav className={style.navbar}>
       <h1 className={style.logo}>
-        <Logotipo />
+        <Logotipo variant="secondary" />
       </h1>
       <div className={style.bar}>
         <button className={style.btn} onClick={handleClick}>
@@ -23,6 +23,11 @@ export default function NavBar({ goToPage }) {
           />
         </button>
         <ul className={`${style.list} ${active ? "" : style.hide}`}>
+          <li className={style.item}>
+            <a className={style.link} onClick={() => goToPage("HomePage")}>
+              Home
+            </a>
+          </li>
           <li className={style.item}>
             <a className={style.link} onClick={() => goToPage("DashboardPage")}>
               Dashboard

@@ -3,6 +3,7 @@ import "./styles.css";
 import "./variables.css";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import CadastroPage from "./pages/Cadastro/CadastroPage";
+import HomePage from "./pages/Home/HomePage";
 import DashboardPage from "./pages/Dashboard/DashboardPage";
 import PerfilPage from "./pages/PerfilPage";
 import NavBar from "./components/NavBar/NavBar";
@@ -32,6 +33,15 @@ export default function App() {
       case "CadastroPage":
         //Página Cadastro, ao final, volta pro login
         return <CadastroPage goToPage={goToPage} />;
+
+      case "HomePage":
+        //Página HomePage aparece com o componente NavBar
+        return (
+          <>
+            <NavBar goToPage={goToPage} />
+            <HomePage goToPage={goToPage} user={user} />
+          </>
+        );
 
       case "DashboardPage":
         //Página Dashboard aparece com o componente NavBar

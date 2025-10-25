@@ -33,10 +33,8 @@ export default function DashboardPage({ user }) {
   function renderPage() {
     return (
       <div className={style.container}>
-        <h2>
-          Bem vindo, {usuario.nome} {usuario.sobrenome}!
-        </h2>
-        <Botao>Marcar consulta</Botao>
+        <h2>Consultas agendadas</h2>
+        <Botao>Marcar outra consulta</Botao>
         <h3>Você tem {sessoes.quantSessoes} sessões agendadas</h3>
         <div className={style.cardContainer}>
           {/* map para renderizar todas as sessões do usuário */}

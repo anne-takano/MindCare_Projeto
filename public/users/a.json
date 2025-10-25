@@ -1,7 +1,11 @@
 {
-    "username": "a",
-    "email": "a@gmail.com",
-    "senha": "a",
-    "nome": "a",
-    "sobrenome": "b"
-  }
+  "username": "a",
+  "email": "a@gmail.com",
+  "senha": "a",
+  "nome": "Amanda",
+  "sobrenome": "Pereira da Silva",
+  "cpf": "123.456.789-00",
+  "dataNascimento": "01/03/2001",
+  "genero": "Feminino",
+  "img": "/users/img/amanda_silva.png"
+}

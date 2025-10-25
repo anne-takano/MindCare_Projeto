@@ -22,9 +22,9 @@ export default function LoginPage({ goToPage, updateUser }) {
       .then((response) => response.json())
       .then((user) => {
         if (user.senha === inputPassword) {
-          //Atualiza o user, o qual sera passado para o dashboard page
+          //Atualiza o user, o qual sera passado para a home page
           updateUser(inputUsername);
-          goToPage("DashboardPage");
+          goToPage("HomePage");
         } else {
           setMessage("Senha não confere.");
         }
