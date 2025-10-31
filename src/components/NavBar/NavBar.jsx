@@ -12,7 +12,11 @@ export default function NavBar({ goToPage }) {
 
   return (
     <nav className={style.navbar}>
-      <div className={style.logo}>
+      <div
+        className={style.logo}
+        onClick={() => goToPage("HomePage")}
+        style={{ cursor: "pointer" }}
+      >
         <Logotipo variant="secondary" />
       </div>
 
