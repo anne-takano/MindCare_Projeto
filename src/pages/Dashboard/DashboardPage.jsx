@@ -28,7 +28,7 @@ export default function DashboardPage({ user }) {
     };
     fetchDadosUsuario();
     fetchSessoes();
-  }, []);
+  }, [user]);
 
   function renderPage() {
     return (

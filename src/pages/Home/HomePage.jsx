@@ -18,7 +18,7 @@ export default function HomePage({ user, goToPage }) {
       setLoading(false);
     };
     fetchDadosUsuario();
-  }, []);
+  }, [user]);
 
   function renderPage() {
     return (
@@ -48,7 +48,11 @@ export default function HomePage({ user, goToPage }) {
         <div className={style.actionsSection}>
           <h3>O que você precisa hoje?</h3>
           <div className={style.actionsGrid}>
-            <div className={`${style.actionCard} ${style.terapeutas}`}>
+            <div
+              className={`${style.actionCard} ${style.terapeutas}`}
+              onClick={() => goToPage("BuscarTerapeutasPage")}
+              style={{ cursor: "pointer" }}
+            >
               <Icon iconName="person_pin_circle" />
               <p>Buscar terapeutas</p>
             </div>

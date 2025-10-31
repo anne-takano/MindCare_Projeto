@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import CadastroPage from "./pages/Cadastro/CadastroPage";
 import HomePage from "./pages/Home/HomePage";
 import DashboardPage from "./pages/Dashboard/DashboardPage";
+import BuscarTerapeutasPage from "./pages/BuscarTerapeutasPage/BuscarTerapeutasPage";
 import PerfilPage from "./pages/PerfilPage";
 import NavBar from "./components/NavBar/NavBar";
 
@@ -49,6 +50,15 @@ export default function App() {
           <>
             <NavBar goToPage={goToPage} />
             <DashboardPage goToPage={goToPage} user={user} />
+          </>
+        );
+
+      case "BuscarTerapeutasPage":
+        //Página BuscarTerapeutas aparece com o componente NavBar
+        return (
+          <>
+            <NavBar goToPage={goToPage} />
+            <BuscarTerapeutasPage />
           </>
         );
 
