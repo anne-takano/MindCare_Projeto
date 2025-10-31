@@ -12,9 +12,12 @@ export default function HomePage({ user, goToPage }) {
   useEffect(() => {
     // busca dados do usuário na base de dados
     const fetchDadosUsuario = async () => {
-      const response = await fetch(`users/${user}.json`);
+      const response = await fetch(`users/pacientes/pacientes.json`);
       const data = await response.json();
-      setUsuario(data);
+      const paciente = Array.isArray(data)
+        ? data.find((p) => p.username === user)
+        : (data && data[user]) || null;
+      setUsuario(paciente || {});
       setLoading(false);
     };
     fetchDadosUsuario();

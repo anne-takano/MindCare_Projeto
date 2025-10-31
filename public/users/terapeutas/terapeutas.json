@@ -1,0 +1,81 @@
+[
+    {
+      "id": 1,
+      "nome": "Erina Yoshida",
+      "genero": "Feminino",
+      "especialidade": "Terapia Cognitivo-Comportamental (TCC)",
+      "crp": "08/12345",
+      "avaliacao": 4.8,
+      "numeroAvaliacoes": 152,
+      "endereco": "Av. Sete de Setembro, Curitiba",
+      "valorPrimeiraConsulta": 150,
+      "proximaDataDisponivel": "2025-11-04",
+      "img": "/users/terapeutas/img/erina_yoshida.png"
+    },
+    {
+      "id": 2,
+      "nome": "Marina Campos",
+      "genero": "Feminino",
+      "especialidade": "Psicanálise",
+      "crp": "06/54321",
+      "avaliacao": 4.6,
+      "numeroAvaliacoes": 89,
+      "endereco": "Rua Augusta, São Paulo",
+      "valorPrimeiraConsulta": 180,
+      "proximaDataDisponivel": "2025-11-06",
+      "img": "/users/terapeutas/img/marina_campos.png"
+    },
+    {
+      "id": 3,
+      "nome": "Daniel Monteiro",
+      "genero": "Masculino",
+      "especialidade": "Terapia Humanista",
+      "crp": "05/67890",
+      "avaliacao": 4.3,
+      "numeroAvaliacoes": 74,
+      "endereco": "Av. Atlântica, Rio de Janeiro",
+      "valorPrimeiraConsulta": 160,
+      "proximaDataDisponivel": "2025-11-05",
+      "img": "/users/terapeutas/img/daniel_monteiro.png"
+    },
+    {
+      "id": 4,
+      "nome": "Marcos Souza",
+      "genero": "Masculino",
+      "especialidade": "Terapia Sistêmica",
+      "crp": "07/13579",
+      "avaliacao": 3.9,
+      "numeroAvaliacoes": 62,
+      "endereco": "Rua das Flores, Porto Alegre",
+      "valorPrimeiraConsulta": 140,
+      "proximaDataDisponivel": "2025-11-08",
+      "img": "/users/terapeutas/img/marcos_souza.png"
+    },
+    {
+      "id": 5,
+      "nome": "Rafael Oliveira",
+      "genero": "Masculino",
+      "especialidade": "Gestalt-terapia",
+      "crp": "09/24680",
+      "avaliacao": 4.5,
+      "numeroAvaliacoes": 103,
+      "endereco": "Av. Boa Viagem, Recife",
+      "valorPrimeiraConsulta": 170,
+      "proximaDataDisponivel": "2025-11-03",
+      "img": "/users/terapeutas/img/rafael_oliveira.png"
+    },
+    {
+      "id": 6,
+      "nome": "Lúcia Almeida",
+      "genero": "Feminino",
+      "especialidade": "Terapia Analítico-Comportamental",
+      "crp": "04/98765",
+      "avaliacao": 4.9,
+      "numeroAvaliacoes": 210,
+      "endereco": "Rua Padre Chagas, Porto Alegre",
+      "valorPrimeiraConsulta": 160,
+      "proximaDataDisponivel": "2025-11-07",
+      "img": "/users/terapeutas/img/lucia_almeida.png"
+    }
+  ]
+  
