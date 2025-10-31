@@ -14,14 +14,18 @@ export default function LoginPage({ goToPage, updateUser }) {
   const onChangeUsername = (e) => setInputUsername(e.target.value);
   const onChangePassword = (e) => setInputPassword(e.target.value);
 
-  const onClickAcessar = () => {
+  const onClickAcessar = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
     setMessage("");
     setLoading(true);
 
-    fetch(`users/${inputUsername}.json`)
+    fetch(`users/pacientes/pacientes.json`)
       .then((response) => response.json())
-      .then((user) => {
-        if (user.senha === inputPassword) {
+      .then((lista) => {
+        const user = Array.isArray(lista)
+          ? lista.find((p) => p.username === inputUsername)
+          : (lista && lista[inputUsername]) || null;
+        if (user && user.senha === inputPassword) {
           //Atualiza o user, o qual sera passado para a home page
           updateUser(inputUsername);
           goToPage("HomePage");
