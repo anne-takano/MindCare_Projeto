@@ -1,15 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logotipo from "../../components/Logotipo/Logotipo";
 import BannerCadastro from "../../components/BannerCadastro/BannerCadastro";
 import CampoInput from "../../components/CampoInput/CampoInput";
 import Botao from "../../components/Botao/Botao";
 import styles from "./login-page.module.css";
+import UsuarioContext from "../../context/UsuarioContext";
 
 export default function LoginPage({ goToPage, updateUser }) {
   const [inputUsername, setInputUsername] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
+  const navigate = useNavigate();
+
+  const { logIn } = useContext(UsuarioContext);
 
   const onChangeUsername = (e) => setInputUsername(e.target.value);
   const onChangePassword = (e) => setInputPassword(e.target.value);
@@ -27,8 +32,8 @@ export default function LoginPage({ goToPage, updateUser }) {
           : (lista && lista[inputUsername]) || null;
         if (user && user.senha === inputPassword) {
           //Atualiza o user, o qual sera passado para a home page
-          updateUser(inputUsername);
-          goToPage("HomePage");
+          logIn(inputUsername);
+          navigate("/home", { replace: true });
         } else {
           setMessage("Senha não confere.");
         }
@@ -46,7 +51,7 @@ export default function LoginPage({ goToPage, updateUser }) {
             className={styles.headerHeadings}
             titulo="Entre na sua conta"
             subtitulo="Ainda não tem cadastro?"
-            onClick={() => goToPage("CadastroPage")}
+            link="/cadastro"
             texto="Cadastre-se"
           />
         </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles.css";
 import "./variables.css";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -6,74 +6,22 @@ import CadastroPage from "./pages/Cadastro/CadastroPage";
 import HomePage from "./pages/Home/HomePage";
 import DashboardPage from "./pages/Dashboard/DashboardPage";
 import BuscarTerapeutasPage from "./pages/BuscarTerapeutasPage/BuscarTerapeutasPage";
-import PerfilPage from "./pages/PerfilPage";
-import NavBar from "./components/NavBar/NavBar";
+import PerfilPage from "./pages/PerfilPage/PerfilPage";
+import UsuarioProvider from "./provider/UsuarioProvider";
 
 export default function App() {
-  //a página começa sempre no Login. (IMPORTANTE!)
-  const [page, setPage] = useState("LoginPage");
-  const [user, setUser] = useState("");
-
-  //função para trocar de página
-  function goToPage(page) {
-    setPage(page);
-  }
-
-  //função para setar o usuário após validação do login
-  function updateUser(user) {
-    setUser(user);
-  }
-
-  //função que decide qual página mostrar
-  function renderPage() {
-    switch (page) {
-      case "LoginPage":
-        //Página Login pode ir pro Cadastro ou Dashboard
-        return <LoginPage goToPage={goToPage} updateUser={updateUser} />;
-
-      case "CadastroPage":
-        //Página Cadastro, ao final, volta pro login
-        return <CadastroPage goToPage={goToPage} />;
-
-      case "HomePage":
-        //Página HomePage aparece com o componente NavBar
-        return (
-          <>
-            <NavBar goToPage={goToPage} />
-            <HomePage goToPage={goToPage} user={user} />
-          </>
-        );
-
-      case "DashboardPage":
-        //Página Dashboard aparece com o componente NavBar
-        return (
-          <>
-            <NavBar goToPage={goToPage} />
-            <DashboardPage goToPage={goToPage} user={user} />
-          </>
-        );
-
-      case "BuscarTerapeutasPage":
-        //Página BuscarTerapeutas aparece com o componente NavBar
-        return (
-          <>
-            <NavBar goToPage={goToPage} />
-            <BuscarTerapeutasPage />
-          </>
-        );
-
-      case "PerfilPage":
-        //Página Perfil aparece com o componente NavBar
-        return (
-          <>
-            <NavBar goToPage={goToPage} />
-            <PerfilPage goToPage={goToPage} />
-          </>
-        );
-      default:
-        return <LoginPage goToPage={goToPage} />;
-    }
-  }
-
-  return <div className="App">{renderPage()}</div>;
+  return (
+    <UsuarioProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/cadastro" element={<CadastroPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/buscarTerapeutas" element={<BuscarTerapeutasPage />} />
+          <Route path="/perfil" element={<PerfilPage />} />
+        </Routes>
+      </BrowserRouter>
+    </UsuarioProvider>
+  );
 }

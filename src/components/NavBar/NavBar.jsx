@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Icon from "../Icon/Icon.jsx";
 import style from "./navbar.module.css";
 import Logotipo from "../Logotipo/Logotipo.jsx";
@@ -12,13 +13,11 @@ export default function NavBar({ goToPage }) {
 
   return (
     <nav className={style.navbar}>
-      <div
-        className={style.logo}
-        onClick={() => goToPage("HomePage")}
-        style={{ cursor: "pointer" }}
-      >
-        <Logotipo variant="secondary" />
-      </div>
+      <Link to="/home" style={{ textDecoration: "none" }}>
+        <div className={style.logo} style={{ cursor: "pointer" }}>
+          <Logotipo variant="secondary" />
+        </div>
+      </Link>
 
       <button className={style.menuBtn} onClick={handleClick}>
         <Icon
@@ -32,27 +31,24 @@ export default function NavBar({ goToPage }) {
 
       <ul className={`${style.navList} ${active ? style.active : ""}`}>
         <li className={style.navItem}>
-          <a className={style.navLink} onClick={() => goToPage("HomePage")}>
+          <Link to="/home" className={style.navLink}>
             Home
-          </a>
+          </Link>
         </li>
         <li className={style.navItem}>
-          <a
-            className={style.navLink}
-            onClick={() => goToPage("DashboardPage")}
-          >
+          <Link to="/dashboard" className={style.navLink}>
             Dashboard
-          </a>
+          </Link>
         </li>
         <li className={style.navItem}>
-          <a className={style.navLink} onClick={() => goToPage("PerfilPage")}>
+          <Link to="/perfil" className={style.navLink}>
             Perfil
-          </a>
+          </Link>
         </li>
         <li className={style.navItem}>
-          <a className={style.navLink} onClick={() => goToPage("LoginPage")}>
+          <Link to="/" className={style.navLink}>
             Sair
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
