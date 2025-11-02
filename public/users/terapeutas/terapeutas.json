@@ -10,7 +10,10 @@
       "endereco": "Av. Sete de Setembro, Curitiba",
       "valorPrimeiraConsulta": 150,
       "proximaDataDisponivel": "2025-11-04",
-      "img": "/users/terapeutas/img/erina_yoshida.png"
+      "horariosDisponiveis": ["08:00", "10:00", "14:00", "16:00"],
+      "img": "/users/terapeutas/img/erina_yoshida.png",
+      "latitude": -25.4284,
+      "longitude": -49.2733
     },
     {
       "id": 2,
@@ -23,7 +26,10 @@
       "endereco": "Rua Augusta, São Paulo",
       "valorPrimeiraConsulta": 180,
       "proximaDataDisponivel": "2025-11-06",
-      "img": "/users/terapeutas/img/marina_campos.png"
+      "horariosDisponiveis": ["09:00", "11:00", "15:00", "17:00"],
+      "img": "/users/terapeutas/img/marina_campos.png",
+      "latitude": -23.5505,
+      "longitude": -46.6333
     },
     {
       "id": 3,
@@ -36,7 +42,10 @@
       "endereco": "Av. Atlântica, Rio de Janeiro",
       "valorPrimeiraConsulta": 160,
       "proximaDataDisponivel": "2025-11-05",
-      "img": "/users/terapeutas/img/daniel_monteiro.png"
+      "horariosDisponiveis": ["08:30", "10:30", "14:30", "16:30"],
+      "img": "/users/terapeutas/img/daniel_monteiro.png",
+      "latitude": -22.9068,
+      "longitude": -43.1729
     },
     {
       "id": 4,
@@ -49,7 +58,10 @@
       "endereco": "Rua das Flores, Porto Alegre",
       "valorPrimeiraConsulta": 140,
       "proximaDataDisponivel": "2025-11-08",
-      "img": "/users/terapeutas/img/marcos_souza.png"
+      "horariosDisponiveis": ["09:30", "11:30", "15:30"],
+      "img": "/users/terapeutas/img/marcos_souza.png",
+      "latitude": -30.0346,
+      "longitude": -51.2177
     },
     {
       "id": 5,
@@ -62,7 +74,10 @@
       "endereco": "Av. Boa Viagem, Recife",
       "valorPrimeiraConsulta": 170,
       "proximaDataDisponivel": "2025-11-03",
-      "img": "/users/terapeutas/img/rafael_oliveira.png"
+      "horariosDisponiveis": ["08:00", "10:00", "14:00", "16:00", "18:00"],
+      "img": "/users/terapeutas/img/rafael_oliveira.png",
+      "latitude": -8.0476,
+      "longitude": -34.8770
     },
     {
       "id": 6,
@@ -75,7 +90,10 @@
       "endereco": "Rua Padre Chagas, Porto Alegre",
       "valorPrimeiraConsulta": 160,
       "proximaDataDisponivel": "2025-11-07",
-      "img": "/users/terapeutas/img/lucia_almeida.png"
+      "horariosDisponiveis": ["09:00", "11:00", "13:00", "15:00", "17:00"],
+      "img": "/users/terapeutas/img/lucia_almeida.png",
+      "latitude": -30.0346,
+      "longitude": -51.2177
     }
   ]
   
