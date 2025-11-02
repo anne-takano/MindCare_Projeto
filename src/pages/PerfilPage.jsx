@@ -2,10 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./perfil-page.estilos.module.css";
 import "../styles.css";
 
-// Para simular a imagem do usuário
-const defaultUserImage = "https://i.pravatar.cc/300";
-
-export default function PerfilPage() {
+export default function PerfilPage({ user }) {
     // Armazena os dados do perfil do usuário.
     const [userData, setUserData] = useState(null);
     // Armazena os dados do formulário durante a edição.
@@ -16,26 +13,38 @@ export default function PerfilPage() {
     const [message, setMessage] = useState("");
 
     useEffect(() => {
-        // Simula a busca de dados do usuário ao carregar o componente.
-        const fetchUserData = () => {
-            // TODO: Substituir por uma chamada de API real.
-            const user = {
-                nome: "Caio",
-                sobrenome: "Silva",
-                cpf: "123.456.789-00",
-                email: "caio.silva@email.com",
-                username: "caiosilva",
-                genero: "Masculino",
-                dataNascimento: "não informado",
-                telefone: "não informado",
-                profissao: "não informado",
-                estadoCivil: "Solteiro",
-            };
-            setUserData(user);
-            setFormData(user);
+        // Busca dados do usuário do arquivo pacientes.json
+        const fetchUserData = async () => {
+            try {
+                const response = await fetch(`users/pacientes/pacientes.json`);
+                const data = await response.json();
+                const paciente = Array.isArray(data)
+                    ? data.find((p) => p.username === user)
+                    : (data && data[user]) || null;
+                
+                if (paciente) {
+                    const pacienteCompleto = {
+                        ...paciente,
+                        telefone: paciente.telefone || "",
+                        profissao: paciente.profissao || "",
+                        estadoCivil: paciente.estadoCivil || "",
+                        rua: paciente.rua || "",
+                        numero: paciente.numero || "",
+                        cep: paciente.cep || "",
+                        endereco: paciente.endereco || "",
+                    };
+                    setUserData(pacienteCompleto);
+                    setFormData(pacienteCompleto);
+                }
+            } catch (error) {
+                console.error("Erro ao buscar dados do usuário:", error);
+            }
         };
-        fetchUserData();
-    }, []);
+        
+        if (user) {
+            fetchUserData();
+        }
+    }, [user]);
 
     if (!userData) {
         return <div>Carregando perfil...</div>;
@@ -78,7 +87,7 @@ export default function PerfilPage() {
             {/* O container interno, que funciona como a "caixa" do perfil*/}
             <div className={styles['perfil-form-container']}>
                 <img
-                    src={defaultUserImage}
+                    src={userData.img || "https://i.pravatar.cc/300"}
                     alt="Imagem de Perfil"
                     className={styles['perfil-img']}
                 />
@@ -112,6 +121,14 @@ export default function PerfilPage() {
                         <p>
                             <strong>Estado Civil:</strong>{" "}
                             {userData.estadoCivil || "Não informado"}
+                        </p>
+                        <p>
+                            <strong>Endereço:</strong>{" "}
+                            {userData.endereco || `${userData.rua || ""} ${userData.numero || ""}, ${userData.cidade || ""}, ${userData.estado || ""}`.trim() || "Não informado"}
+                        </p>
+                        <p>
+                            <strong>CEP:</strong>{" "}
+                            {userData.cep || "Não informado"}
                         </p>
                         <button className={styles.button} onClick={() => setEditMode(true)}>
                             Editar Dados
@@ -202,6 +219,46 @@ export default function PerfilPage() {
                                 <option value="Divorciado">Divorciado(a)</option>
                                 <option value="Viúvo">Viúvo(a)</option>
                             </select>
+                        <input
+                            className={styles.input}
+                            type="text"
+                            placeholder="Rua"
+                            name="rua"
+                            value={formData.rua || ""}
+                            onChange={handleInputChange}
+                        />
+                        <input
+                            className={styles.input}
+                            type="text"
+                            placeholder="Número"
+                            name="numero"
+                            value={formData.numero || ""}
+                            onChange={handleInputChange}
+                        />
+                        <input
+                            className={styles.input}
+                            type="text"
+                            placeholder="CEP"
+                            name="cep"
+                            value={formData.cep || ""}
+                            onChange={handleInputChange}
+                        />
+                        <input
+                            className={styles.input}
+                            type="text"
+                            placeholder="Cidade"
+                            name="cidade"
+                            value={formData.cidade || ""}
+                            onChange={handleInputChange}
+                        />
+                        <input
+                            className={styles.input}
+                            type="text"
+                            placeholder="Estado"
+                            name="estado"
+                            value={formData.estado || ""}
+                            onChange={handleInputChange}
+                        />
                         {/* Botões de ação do formulário. */}
                         <div className={styles['form-actions']}>
                             <button type="button" className={`${styles.button} ${styles.actionButton}`} onClick={handleSave}>

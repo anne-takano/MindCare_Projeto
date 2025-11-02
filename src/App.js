@@ -58,7 +58,7 @@ export default function App() {
         return (
           <>
             <NavBar goToPage={goToPage} />
-            <BuscarTerapeutasPage />
+            <BuscarTerapeutasPage user={user} />
           </>
         );
 
@@ -67,7 +67,7 @@ export default function App() {
         return (
           <>
             <NavBar goToPage={goToPage} />
-            <PerfilPage goToPage={goToPage} />
+            <PerfilPage goToPage={goToPage} user={user} />
           </>
         );
       default:

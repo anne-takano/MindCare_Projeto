@@ -10,7 +10,13 @@
         "cidade": "Belo Horizonte",
         "estado": "MG",
         "genero": "Feminino",
-        "img": "/users/pacientes/img/amanda_silva.png"
+        "img": "/users/pacientes/img/amanda_silva.png",
+        "rua": "Avenida Afonso Pena",
+        "numero": "1500",
+        "cep": "30130-000",
+        "endereco": "Avenida Afonso Pena, 1500, Belo Horizonte, MG",
+        "latitude": -19.9167,
+        "longitude": -43.9345
       },
       {
         "username": "g",
@@ -23,6 +29,12 @@
         "cidade": "Vitória",
         "estado": "ES",
         "genero": "Masculino",
-        "img": "/users/pacientes/img/gabriel_machado.png"
+        "img": "/users/pacientes/img/gabriel_machado.png",
+        "rua": "Avenida Jerônimo Monteiro",
+        "numero": "500",
+        "cep": "29010-000",
+        "endereco": "Avenida Jerônimo Monteiro, 500, Vitória, ES",
+        "latitude": -20.3155,
+        "longitude": -40.3126
       }
 ]
