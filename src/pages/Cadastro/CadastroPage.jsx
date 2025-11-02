@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./cadastro-page.module.css";
 import Logotipo from "../../components/Logotipo/Logotipo";
 import BannerCadastro from "../../components/BannerCadastro/BannerCadastro";
@@ -18,6 +19,8 @@ export default function CadastroPage({ goToPage }) {
   const [isLoading, setLoading] = useState(false);
   const [cpfMessage, setCpfMessage] = useState("");
   const [senhaMessage, setSenhaMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const onChangeNome = (e) => setInputNome(e.target.value);
   const onChangeSobrenome = (e) => setInputSobrenome(e.target.value);
@@ -66,7 +69,7 @@ export default function CadastroPage({ goToPage }) {
 
     if (!valid) return;
 
-    goToPage("LoginPage");
+    navigate("/", { replace: true });
   };
 
   return (
